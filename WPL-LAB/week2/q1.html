@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<<head>
+<title>Lab 2 - jQuery Animation</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+table{
+    border-collapse: collapse;
+    width: 300px;
+}
+
+td, th{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: #dddddd;
+}
+tr:nth-child(odd){
+    background-color: white;
+}
+
+#container{
+    position: relative;
+    right: 300px;   /* start from right */
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $("button").click(function(){
+        $("#container").animate({right:'0px'});
+    });
+});
+</script>
+</head>
+
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $("button").click(function(){
+        $("#container").animate({left:'0px'});   // move from right to left
+    });
+
+});
+</script>
+
+</head>
+
+<body>
+
+<h2>Lab 2 - jQuery Animation</h2>
+
+<button>Move Table and Image</button>
+<br><br>
+
+<div id="container">
+
+    <!-- 3 x 3 Table -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+        </tr>
+        <tr>
+            <td>Rahul</td>
+            <td>20</td>
+            <td>Delhi</td>
+        </tr>
+        <tr>
+            <td>Anita</td>
+            <td>21</td>
+            <td>Mumbai</td>
+        </tr>
+        <tr>
+            <td>Ravi</td>
+            <td>22</td>
+            <td>Bangalore</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <!-- Image -->
+    <img src="/home/WP_B2/Desktop/LAB/simple-hand-drawing-ghost-shouts-260nw-1681698796.webp" width="200" height="150">
+
+</div>
+
+</body>
+</html>

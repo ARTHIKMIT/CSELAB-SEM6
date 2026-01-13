@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Card</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+#card{
+    width: 400px;
+    height: 250px;
+    border: 2px solid black;
+    text-align: center;
+    padding-top: 50px;
+    background-color: pink;
+    font-family: Arial;
+}
+</style>
+
+<script>
+$(document).ready(function(){
+    $("#btn").click(function(){
+        $("#msg").fadeIn();
+    });
+});
+</script>
+
+</head>
+
+<body>
+
+<div id="card">
+    <h2>🎉 Happy Birthday 🎉</h2>
+    <h3 id="msg" style="display:none;">Have a wonderful day!</h3>
+</div>
+
+<br>
+<button id="btn">Show Message</button>
+
+</body>
+</html>
