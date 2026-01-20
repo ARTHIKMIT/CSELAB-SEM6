@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Layout Design</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery & Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+
+    <!-- ================= TOP SECTION ================= -->
+    <div class="card shadow mb-4">
+        <div class="card-header bg-primary text-white text-center">
+            <h4>Top Section – User Registration</h4>
+            <span class="badge badge-warning">New</span>
+            <span class="badge badge-success">Active</span>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">👤</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="email" class="form-control mb-3" placeholder="Email Address">
+                </div>
+
+                <div class="col-md-4">
+                    <input type="password" class="form-control mb-3" placeholder="Password">
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="btn-group">
+                    <button class="btn btn-success">Register</button>
+                    <button class="btn btn-info">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= BOTTOM SECTION ================= -->
+    <div class="row">
+
+        <!-- Bottom Part 1 -->
+        <div class="col-md-4">
+            <div class="card shadow mb-3">
+                <div class="card-header bg-info text-white">
+                    Profile Details <span class="badge badge-light">01</span>
+                </div>
+
+                <div class="card-body">
+                    <input type="text" class="form-control mb-2" placeholder="Full Name">
+                    <input type="number" class="form-control mb-2" placeholder="Age">
+                    <button class="btn btn-info btn-block">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Part 2 -->
+        <div class="col-md-4">
+            <div class="card shadow mb-3">
+                <div class="card-header bg-success text-white">
+                    Preferences <span class="badge badge-warning">New</span>
+                </div>
+
+                <div class="card-body text-center">
+                    <p>Select Mode</p>
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-success active">
+                            <input type="radio" checked> Light
+                        </label>
+                        <label class="btn btn-outline-dark">
+                            <input type="radio"> Dark
+                        </label>
+                    </div>
+
+                    <hr>
+
+                    <button class="btn btn-success">Apply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Part 3 -->
+        <div class="col-md-4">
+            <div class="card shadow mb-3">
+                <div class="card-header bg-danger text-white">
+                    Notifications <span class="badge badge-light">5</span>
+                </div>
+
+                <div class="card-body">
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between">
+                            Messages <span class="badge badge-primary">2</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            Alerts <span class="badge badge-danger">3</span>
+                        </li>
+                    </ul>
+
+                    <div class="btn-group btn-group-sm btn-block">
+                        <button class="btn btn-danger">Clear</button>
+                        <button class="btn btn-secondary">View All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

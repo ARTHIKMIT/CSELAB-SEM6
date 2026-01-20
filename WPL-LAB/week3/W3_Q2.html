@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Employee CRUD Operations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper & Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container mt-4">
+    <h2 class="text-center">Employee CRUD Operations</h2>
+
+    <h4 class="mt-4">Employee Details</h4>
+
+    <form id="empForm">
+        <table class="table table-bordered">
+            <tr>
+                <td><label>Employee ID</label></td>
+                <td><input type="text" id="empId" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><label>Employee Name</label></td>
+                <td><input type="text" id="empName" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><label>Department</label></td>
+                <td><input type="text" id="empDept" class="form-control"></td>
+            </tr>
+            <tr>
+                <td><label>Salary</label></td>
+                <td><input type="text" id="empSalary" class="form-control"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button type="button" id="createBtn" class="btn btn-success">Create</button>
+                    <button type="button" id="updateBtn" class="btn btn-primary">Update</button>
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h4 class="mt-4">Employee Records</h4>
+
+    <table class="table table-striped table-bordered" id="empTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>Emp ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Records will be added here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    let selectedRow = null;
+
+    // CREATE
+    $("#createBtn").click(function () {
+        let id = $("#empId").val();
+        let name = $("#empName").val();
+        let dept = $("#empDept").val();
+        let salary = $("#empSalary").val();
+
+        if (id === "" || name === "" || dept === "" || salary === "") {
+            alert("All fields are required");
+            return;
+        }
+
+        let row = `
+            <tr>
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${dept}</td>
+                <td>${salary}</td>
+                <td>
+                    <button class="btn btn-sm btn-info editBtn">Edit</button>
+                    <button class="btn btn-sm btn-danger deleteBtn">Delete</button>
+                </td>
+            </tr>
+        `;
+
+        $("#empTable tbody").append(row);
+        $("#empForm")[0].reset();
+    });
+
+    // EDIT
+    $(document).on("click", ".editBtn", function () {
+        selectedRow = $(this).closest("tr");
+
+        $("#empId").val(selectedRow.find("td:eq(0)").text());
+        $("#empName").val(selectedRow.find("td:eq(1)").text());
+        $("#empDept").val(selectedRow.find("td:eq(2)").text());
+        $("#empSalary").val(selectedRow.find("td:eq(3)").text());
+    });
+
+    // UPDATE
+    $("#updateBtn").click(function () {
+        if (selectedRow === null) {
+            alert("Select a row to update");
+            return;
+        }
+
+        selectedRow.find("td:eq(0)").text($("#empId").val());
+        selectedRow.find("td:eq(1)").text($("#empName").val());
+        selectedRow.find("td:eq(2)").text($("#empDept").val());
+        selectedRow.find("td:eq(3)").text($("#empSalary").val());
+
+        selectedRow = null;
+        $("#empForm")[0].reset();
+    });
+
+    // DELETE
+    $(document).on("click", ".deleteBtn", function () {
+        if (confirm("Are you sure you want to delete this record?")) {
+            $(this).closest("tr").remove();
+        }
+    });
+</script>
+
+</body>
+</html>
