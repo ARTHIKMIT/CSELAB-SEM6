@@ -1,0 +1,92 @@
+$date
+	Wed Sep 11 14:30:47 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module ShiftRegister6BitPIPO_tb $end
+$var wire 6 ! A [5:0] $end
+$var reg 6 " I [5:0] $end
+$var reg 1 # clk $end
+$scope module r1 $end
+$var wire 6 $ I [5:0] $end
+$var wire 1 # clk $end
+$var wire 6 % A [5:0] $end
+$scope module s1 $end
+$var wire 1 & D $end
+$var wire 1 # clk $end
+$var reg 1 ' Q $end
+$upscope $end
+$scope module s2 $end
+$var wire 1 ( D $end
+$var wire 1 # clk $end
+$var reg 1 ) Q $end
+$upscope $end
+$scope module s3 $end
+$var wire 1 * D $end
+$var wire 1 # clk $end
+$var reg 1 + Q $end
+$upscope $end
+$scope module s4 $end
+$var wire 1 , D $end
+$var wire 1 # clk $end
+$var reg 1 - Q $end
+$upscope $end
+$scope module s5 $end
+$var wire 1 . D $end
+$var wire 1 # clk $end
+$var reg 1 / Q $end
+$upscope $end
+$scope module s6 $end
+$var wire 1 0 D $end
+$var wire 1 # clk $end
+$var reg 1 1 Q $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x1
+00
+x/
+0.
+x-
+1,
+x+
+1*
+x)
+0(
+x'
+0&
+bx %
+b1100 $
+0#
+b1100 "
+bx !
+$end
+#10
+0'
+0)
+1+
+1-
+0/
+b1100 !
+b1100 %
+01
+1#
+#20
+0,
+0#
+b1000 "
+b1000 $
+#30
+b1000 !
+b1000 %
+0-
+1#
+#40
+0#
