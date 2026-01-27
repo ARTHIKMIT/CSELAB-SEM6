@@ -1,0 +1,401 @@
+-- EXAMPLES --
+
+--  A PL/SQL block to display ‘Hello, World’. --
+
+SET SERVEROUTPUT ON
+declare
+	message varchar2 (20) :='Hello, World!';
+begin
+	dbms_output.put_line(message);
+end;
+/
+
+--  A PL/SQL block to display the grade for given letter grade. --
+
+DECLARE 
+	grade CHAR(1); 
+BEGIN 
+	grade := '&g'; 
+	IF grade = 'A' THEN 
+ 		DBMS_OUTPUT.PUT_LINE('Excellent'); 
+	ELSIF grade = 'B' THEN 
+ 		DBMS_OUTPUT.PUT_LINE('Very Good'); 
+	ELSIF grade = 'C' THEN 
+		DBMS_OUTPUT.PUT_LINE('Good'); 
+	ELSIF grade = 'D' THEN 
+ 		DBMS_OUTPUT. PUT_LINE('Fair'); 
+	ELSIF grade = 'F' THEN 
+ 		DBMS_OUTPUT.PUT_LINE('Poor'); 
+	ELSE 
+ 		DBMS_OUTPUT.PUT_LINE('No such grade'); 
+	END IF; 
+END; 
+/
+
+
+/* The following PL/SQL block traces the control flow in a simple LOOP 
+construct.*/
+
+declare
+	x number := 0;
+begin
+	loop
+		dbms_output.put_line('Inside loop: x = '||to_char(x));
+		x := x+1;
+		if x>3 then exit;
+		end if;
+	end loop;
+	dbms_output.put_line('After loop: x = '||to_char(x));
+end;
+/
+
+-- The following PL/SQL block traces the control flow in a while LOOP. --
+
+declare
+	x number := 0;
+begin
+	while x<4
+          loop
+		dbms_output.put_line('Inside loop: x = '||to_char(x));
+		x := x+1;
+		if x>3 then exit;
+		end if;
+	  end loop;
+	dbms_output.put_line('After loop: x = '||to_char(x));
+end;
+/
+
+-- The following PL/SQL block traces the control flow in a FOR LOOP. --
+
+begin
+	DBMS_OUTPUT.PUT_LINE ('lower_bound < upper_bound'); 
+ 	FOR i IN 1..3 LOOP 
+ 		 DBMS_OUTPUT.PUT_LINE (i); 
+ 	END LOOP; 
+	DBMS_OUTPUT.PUT_LINE ('lower_bound = upper_bound'); 
+ 	FOR i IN 2..2 LOOP 
+ 		 DBMS_OUTPUT.PUT_LINE (i); 
+ 	END LOOP; 
+ 
+ 	DBMS_OUTPUT.PUT_LINE ('lower_bound > upper_bound'); 
+ 	FOR i IN 3..1 LOOP 
+  		DBMS_OUTPUT.PUT_LINE (i); 
+ 	END LOOP; 
+END; 
+/ 
+
+--  A PL/SQL block to check whether a given number is prime number. --
+
+declare
+	p varchar2 (30);
+	n pls_integer := 37;
+begin
+	for j in 2..round(sqrt(n)) loop
+		if n mod j = 0 then
+			p := ' is not a prime number';
+			goto print_now;
+		end if;
+	end loop;
+	p := ' is a prime number';
+<<print_now>>
+	dbms_output.put_line(to_char(n)||p);
+end; 
+/ 
+
+/*  Update all accounts with balance less than 0 to 0 in account(account_number, 
+balance) table, populated with {(1, 100); (2, 3000); (3, 500)} */
+
+create table account (
+	account_number numeric,
+	balance numeric);
+
+insert into account values (1, 100);
+insert into account values (2, 3000);
+insert into account values (3, 500);
+
+begin
+	update account set balance = 0 where balance < 0;
+exception 
+	when no_data_found then dbms_output.put_line('No rows found');
+end;
+/
+
+/*  Validate the resultant balance before supporting withdrawal of money from 
+the account table such that a min. of 500 is maintained.  */
+
+declare 
+	insufficient_balance Exception;
+	amount account.balance%type;
+	temp account.balance%type;
+	ANumber account.account_number%type;
+begin
+	ANumber := &Number;
+	Amount := &Amount;
+	select balance into temp from account where account_number = ANumber;
+	temp := temp - Amount;
+	if temp >= 500 then
+		update account set balance = temp where account_number = ANumber;
+	else 
+		raise insufficient_balance;
+	end if;
+exception 
+	when insufficient_balance then
+		dbms_output.put_line('Insufficient Balance!');
+	when others then
+		dbms_output.put_line('Error');
+end;
+/
+
+
+-- Lab Exercise --
+
+create table studentTable (
+	RollNo numeric,
+	GPA numeric);
+
+insert into studentTable values (1, 5.8);
+insert into studentTable values (2, 6.5);
+insert into studentTable values (3, 3.4);
+insert into studentTable values (4, 7.8);
+insert into studentTable values (5, 9.5);
+
+-- 1. Write a PL/SQL block to display the GPA of given student. --
+declare
+	roll studentTable.RollNo%type;
+	gp studentTable.GPA%type;
+begin
+	roll := &RollNum;
+	select gpa into gp from studentTable where rollNo=roll;
+	dbms_output.put_line(gp);
+end;
+/
+
+/*
+2. Write a PL/SQL block to display the letter grade(0-4: F; 4-5: E; 5-6: D; 6-7: C; 7-8: B; 8-9: A; 9-10: A+} of given student. 
+*/
+
+SET SERVEROUTPUT ON
+
+DECLARE
+    RNO StudentTable.RollNo%TYPE;
+    G StudentTable.GPA%TYPE;
+BEGIN
+    RNO := '&rno';
+    SELECT GPA
+    INTO G
+    FROM StudentTable
+    WHERE RollNo = RNO;
+    IF G > 0 AND G <= 4 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade is F');
+    ELSIF G > 4 AND G <= 5 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade is E');
+    ELSIF G > 5 AND G <= 6 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade is D');
+    ELSIF G > 6 AND G <= 7 THEN
+        DBMS_OUTPUT. PUT_LINE('Grade is C');
+    ELSIF G > 7 AND G <= 8 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade is B');
+    ELSIF G > 8 AND G <= 9 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade is A');
+    ELSIF G > 9 AND G <= 10 THEN
+        DBMS_OUTPUT.PUT_LINE('Grade is A+');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('No such grade');
+    END IF;
+END;
+/
+
+/*
+3. Input the date of issue and date of return for a book. Calculate and display the fine with the appropriate message using a PL/SQL block. The fine is charged as per the table.  
+*/
+SET SERVEROUTPUT ON
+
+DECLARE
+    DOI DATE;
+    DOR DATE;
+    Days NUMERIC(3);
+    Fine NUMERIC(6);
+BEGIN
+    DOI := TO_DATE('&DateOfIssue','DD-MM-YY');
+    DOR := TO_DATE('&DateOfReturn','DD-MM-YY');
+    Days := (DOR - DOI);
+    IF Days >= 0 AND Days <= 7 THEN
+        DBMS_OUTPUT.PUT_LINE('Fine is NIL');
+    ELSIF Days >= 8 AND Days <= 15 THEN
+        Fine := Days * 1;
+        DBMS_OUTPUT.PUT_LINE('Fine is ' || Fine);
+    ELSIF Days >= 16 AND Days <= 30 THEN
+        Fine := Days * 2;
+        DBMS_OUTPUT.PUT_LINE('Fine is ' || Fine);
+    ELSIF Days > 30 THEN
+        Fine := Days * 5;
+        DBMS_OUTPUT.PUT_LINE('Fine is ' || Fine);
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Error');
+    END IF;
+END;
+/
+
+/* 
+4. Write a PL/SQL block to print the letter grade of all the students
+(RollNo: 1 - 5). 
+*/
+SET SERVEROUTPUT ON
+
+DECLARE
+    I NUMERIC(1);
+    G StudentTable.GPA%TYPE;
+BEGIN
+    I := 1;
+    LOOP
+        SELECT GPA
+        INTO G
+        FROM StudentTable
+        WHERE RollNo = I;
+        IF G > 0 AND G < 4 THEN
+            DBMS_OUTPUT.PUT_LINE('Grade is F');
+        ELSIF G > 4 AND G < 5 THEN
+            DBMS_OUTPUT.PUT_LINE('Grade is E');
+        ELSIF G > 5 AND G < 6 THEN
+            DBMS_OUTPUT.PUT_LINE('Grade is D');
+        ELSIF G > 6 AND G < 7 THEN
+            DBMS_OUTPUT. PUT_LINE('Grade is C');
+        ELSIF G > 7 AND G < 8 THEN
+            DBMS_OUTPUT.PUT_LINE('Grade is B');
+        ELSIF G > 8 AND G < 9 THEN
+            DBMS_OUTPUT.PUT_LINE('Grade is A');
+        ELSIF G > 9 AND G < 10 THEN
+            DBMS_OUTPUT.PUT_LINE('Grade is A+');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('No such grade');
+        END IF;
+        I := I + 1;
+        IF I > 5 THEN EXIT;
+        END IF;
+    END LOOP;
+END;
+/
+
+
+/* 
+5. Alter StudentTable by appending an additional column LetterGrade Varchar2(2). 
+Then write a PL/SQL block  to update the table with letter grade of each student. 
+*/
+
+ALTER TABLE StudentTable ADD LetterGrade VARCHAR2(2);
+
+SET SERVEROUTPUT ON
+
+DECLARE
+    G StudentTable.GPA%TYPE;
+    N NUMBER;
+    I NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO N FROM StudentTable;
+    I := 1;
+    WHILE I <= N
+    LOOP
+        SELECT GPA
+        INTO G
+        FROM StudentTable
+        WHERE RollNo = I;
+        IF G > 0 AND G <= 4 THEN
+            UPDATE StudentTable SET LetterGrade = 'F' WHERE RollNo = I;
+        ELSIF G > 4 AND G <= 5 THEN
+            UPDATE StudentTable SET LetterGrade = 'E' WHERE RollNo = I;
+        ELSIF G > 5 AND G <= 6 THEN
+            UPDATE StudentTable SET LetterGrade = 'D' WHERE RollNo = I;
+        ELSIF G > 6 AND G <= 7 THEN
+            UPDATE StudentTable SET LetterGrade = 'C' WHERE RollNo = I;
+        ELSIF G > 7 AND G <= 8 THEN
+            UPDATE StudentTable SET LetterGrade = 'B' WHERE RollNo = I;
+        ELSIF G > 8 AND G <= 9 THEN
+            UPDATE StudentTable SET LetterGrade = 'A' WHERE RollNo = I;
+        ELSIF G > 9 AND G <= 10 THEN
+            UPDATE StudentTable SET LetterGrade = 'A+' WHERE RollNo = I;
+        END IF;
+        I := I + 1;
+    END LOOP;
+END;
+/
+
+/*
+6. Write a PL/SQL block to find the student with max. GPA without using aggregate 
+function. 
+*/
+SET SERVEROUTPUT ON 
+
+DECLARE
+    G StudentTable.GPA%TYPE;
+    MAXG StudentTable.GPA%TYPE;
+    N NUMBER;
+    I NUMBER;
+BEGIN
+    SELECT COUNT(*) INTO N FROM StudentTable;
+    I := 1;
+    MAXG := 0;
+    WHILE I <= N
+    LOOP
+        SELECT GPA
+        INTO G
+        FROM StudentTable
+        WHERE RollNo = I;
+        IF G > MAXG THEN
+            MAXG := G;
+        END IF;
+        I := I + 1;
+    END LOOP;
+    SELECT RollNo INTO I FROM StudentTable WHERE GPA = MAXG;
+    DBMS_OUTPUT.PUT_LINE('Student with max. GPA is: Roll Number ' || I);
+END;
+/
+
+/*
+7. Write a PL/SQL block to print the letter grade of all the students
+(RollNo: 1 - 5) using GOTO.
+*/
+SET SERVEROUTPUT ON
+
+DECLARE
+    I NUMERIC(1);
+    G StudentTable.GPA%TYPE;
+    LetterGrade VARCHAR2(2);
+BEGIN
+    I := 1;
+    LOOP
+        SELECT GPA
+        INTO G
+        FROM StudentTable
+        WHERE RollNo = I;
+        IF G > 0 AND G < 4 THEN
+            LetterGrade := 'F';
+            GOTO OUTP;
+        ELSIF G > 4 AND G < 5 THEN
+            LetterGrade := 'E';
+            GOTO OUTP;
+        ELSIF G > 5 AND G < 6 THEN
+            LetterGrade := 'D';
+            GOTO OUTP;
+        ELSIF G > 6 AND G < 7 THEN
+            LetterGrade := 'C';
+            GOTO OUTP;
+        ELSIF G > 7 AND G < 8 THEN
+            LetterGrade := 'B';
+            GOTO OUTP;
+        ELSIF G > 8 AND G < 9 THEN
+            LetterGrade := 'A';
+            GOTO OUTP;
+        ELSIF G > 9 AND G < 10 THEN
+            LetterGrade := 'A+';
+            GOTO OUTP;
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('No such grade');
+        END IF;
+        <<OUTP>>
+            DBMS_OUTPUT.PUT_LINE('Grade is ' || LetterGrade);
+        I := I + 1;
+        IF I > 5 THEN EXIT;
+        END IF;
+    END LOOP;
+END;
+/

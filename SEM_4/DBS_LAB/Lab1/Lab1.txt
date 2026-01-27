@@ -1,0 +1,48 @@
+Example :
+
+DDL
+create table Student (
+reg_no number(5),
+stu_name varchar(20),
+stu_age number(5),
+stu_dob date,
+subject1_marks number(4,2),
+subject2_marks number(4,2),
+subject3_marks number(4,1));
+
+alter table student add (Gender char(5));
+alter table student drop column Gender;
+alter table student modify (stu_age number(6));
+rename student to students;
+
+DML
+insert into student values (101, 'AAA',16,'03-july-88',80,90,98);
+select * from student;
+select stu_age age from student;
+select subject1_marks + subject2_marks + subject3_marks marks from student;
+Delete from student where reg_no = 101;
+Update STUDENT set stu_name=’MANAV’;
+Update STUDENT set stu_name=’YADAV’ where reg_no=102;
+
+Truncate table students;
+drop table students;
+
+Lab Exercise :
+
+create table Employee (
+  Emp_no number(3),
+  emp_name varchar(25),
+  emp_address varchar(35));
+insert into employee values (001, 'Gitaansh','Coimbatore');
+insert into employee values (002, 'Shakthi','Chennai');
+insert into employee values (002, 'Maana','Pune');
+insert into employee values (004, 'Harshithaa','Manipal');
+insert into employee values (004, 'Vibh','Mangalore');
+Select emp_name from employee;
+Select emp_name from employee where emp_address = 'Manipal';
+alter table employee add salary numeric(10,2);
+update employee set salary=1000000;
+desc employee;
+delete from employee;
+rename employee to employee1;
+drop table employee1;
