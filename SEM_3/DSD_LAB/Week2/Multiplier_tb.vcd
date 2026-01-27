@@ -1,0 +1,120 @@
+$date
+	Wed Aug 14 14:51:45 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module Multiplier_tb $end
+$var wire 6 ! p [5:0] $end
+$var reg 3 " a [2:0] $end
+$var reg 3 # b [2:0] $end
+$scope module mu $end
+$var wire 3 $ a [2:0] $end
+$var wire 3 % b [2:0] $end
+$var wire 1 & cout3 $end
+$var wire 1 ' cout5 $end
+$var wire 1 ( x2 $end
+$var wire 1 ) x1 $end
+$var wire 6 * p [5:0] $end
+$var wire 1 + cout4 $end
+$var wire 1 , cout2 $end
+$var wire 1 - cout1 $end
+$var wire 1 . count5 $end
+$var wire 1 / count3 $end
+$scope module fa1 $end
+$var wire 1 0 cin $end
+$var wire 1 - y $end
+$var wire 1 ) x $end
+$var reg 1 / cout $end
+$var reg 1 1 s $end
+$upscope $end
+$scope module fa2 $end
+$var wire 1 & cin $end
+$var wire 1 , y $end
+$var wire 1 ( x $end
+$var reg 1 . cout $end
+$var reg 1 2 s $end
+$upscope $end
+$scope module fa3 $end
+$var wire 1 ' cin $end
+$var wire 1 3 x $end
+$var wire 1 + y $end
+$var reg 1 4 cout $end
+$var reg 1 5 s $end
+$upscope $end
+$scope module ha1 $end
+$var wire 1 6 x $end
+$var wire 1 7 y $end
+$var reg 1 - cout $end
+$var reg 1 8 s $end
+$upscope $end
+$scope module ha2 $end
+$var wire 1 9 x $end
+$var wire 1 : y $end
+$var reg 1 , cout $end
+$var reg 1 ) s $end
+$upscope $end
+$scope module ha3 $end
+$var wire 1 ; x $end
+$var wire 1 < y $end
+$var reg 1 + cout $end
+$var reg 1 ( s $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1<
+0;
+0:
+19
+18
+17
+06
+x5
+x4
+13
+x2
+11
+00
+0/
+x.
+0-
+0,
+0+
+bx110 *
+1)
+1(
+z'
+z&
+b101 %
+b110 $
+b101 #
+b110 "
+bx110 !
+$end
+#20
+14
+1,
+0)
+1+
+0(
+1-
+08
+1/
+01
+1:
+1;
+b1xx001 !
+b1xx001 *
+16
+10
+b111 #
+b111 %
+b111 "
+b111 $
+#40

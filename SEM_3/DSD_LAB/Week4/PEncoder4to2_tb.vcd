@@ -1,0 +1,44 @@
+$date
+	Wed Aug 21 16:14:19 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module PEncoder4to2_tb $end
+$var wire 1 ! Z $end
+$var wire 2 " B [1:0] $end
+$var reg 4 # D [3:0] $end
+$scope module mu $end
+$var wire 4 $ D [3:0] $end
+$var reg 2 % B [1:0] $end
+$var reg 1 ! Z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 %
+b1 $
+b1 #
+b0 "
+x!
+$end
+#10
+b1 "
+b1 %
+b10 #
+b10 $
+#20
+b10 "
+b10 %
+b100 #
+b100 $
+#30
+b11 "
+b11 %
+b1000 #
+b1000 $
+#40

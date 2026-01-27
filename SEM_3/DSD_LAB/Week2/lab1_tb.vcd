@@ -1,0 +1,112 @@
+$date
+	Wed Aug  7 14:39:55 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module lab1_tb $end
+$var wire 1 ! f $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$var reg 1 $ c $end
+$var reg 1 % d $end
+$scope module l $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 $ c $end
+$var wire 1 % d $end
+$var wire 1 ! f $end
+$var wire 1 & g $end
+$var wire 1 ' h $end
+$upscope $end
+$scope begin $ivl_for_loop0 $end
+$var integer 32 ( i [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 (
+0'
+0&
+0%
+0$
+0#
+0"
+1!
+$end
+#20
+0!
+1&
+1%
+b1 (
+#40
+1$
+0%
+b10 (
+#60
+1%
+b11 (
+#80
+1!
+0&
+1#
+0$
+0%
+b100 (
+#100
+0!
+1&
+1%
+b101 (
+#120
+1$
+0%
+b110 (
+#140
+1%
+b111 (
+#160
+1!
+0&
+1"
+0#
+0$
+0%
+b1000 (
+#180
+0!
+1&
+1%
+b1001 (
+#200
+1$
+0%
+b1010 (
+#220
+1%
+b1011 (
+#240
+1'
+0&
+1#
+0$
+0%
+b1100 (
+#260
+1!
+1&
+1%
+b1101 (
+#280
+1$
+0%
+b1110 (
+#300
+1%
+b1111 (
+#320
+b10000 (

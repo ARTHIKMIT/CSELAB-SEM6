@@ -1,0 +1,264 @@
+#! /usr/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x56360c8589a0 .scope module, "FourAdder_tb" "FourAdder_tb" 2 4;
+ .timescale -9 -9;
+v0x56360c879a80_0 .var "cin", 0 0;
+v0x56360c879b20_0 .net "cout", 0 0, v0x56360c878810_0;  1 drivers
+v0x56360c879c10_0 .net "s0", 0 0, v0x56360c877260_0;  1 drivers
+v0x56360c879d00_0 .net "s1", 0 0, v0x56360c8779e0_0;  1 drivers
+v0x56360c879df0_0 .net "s2", 0 0, v0x56360c878160_0;  1 drivers
+v0x56360c879f30_0 .net "s3", 0 0, v0x56360c8788d0_0;  1 drivers
+v0x56360c87a020_0 .var "x0", 0 0;
+v0x56360c87a110_0 .var "x1", 0 0;
+v0x56360c87a200_0 .var "x2", 0 0;
+v0x56360c87a2a0_0 .var "x3", 0 0;
+v0x56360c87a390_0 .var "y0", 0 0;
+v0x56360c87a480_0 .var "y1", 0 0;
+v0x56360c87a570_0 .var "y2", 0 0;
+v0x56360c87a660_0 .var "y3", 0 0;
+S_0x56360c858b30 .scope module, "l" "FourAdder" 2 7, 3 3 0, S_0x56360c8589a0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "cin";
+    .port_info 1 /INPUT 1 "x3";
+    .port_info 2 /INPUT 1 "x2";
+    .port_info 3 /INPUT 1 "x1";
+    .port_info 4 /INPUT 1 "x0";
+    .port_info 5 /INPUT 1 "y3";
+    .port_info 6 /INPUT 1 "y2";
+    .port_info 7 /INPUT 1 "y1";
+    .port_info 8 /INPUT 1 "y0";
+    .port_info 9 /OUTPUT 1 "s3";
+    .port_info 10 /OUTPUT 1 "s2";
+    .port_info 11 /OUTPUT 1 "s1";
+    .port_info 12 /OUTPUT 1 "s0";
+    .port_info 13 /OUTPUT 1 "cout";
+v0x56360c878c00_0 .net "c1", 0 0, v0x56360c8771a0_0;  1 drivers
+v0x56360c878d10_0 .net "c2", 0 0, v0x56360c877920_0;  1 drivers
+v0x56360c878e20_0 .net "c3", 0 0, v0x56360c8780a0_0;  1 drivers
+v0x56360c878f10_0 .net "cin", 0 0, v0x56360c879a80_0;  1 drivers
+v0x56360c878fb0_0 .net "cout", 0 0, v0x56360c878810_0;  alias, 1 drivers
+v0x56360c8790a0_0 .net "s0", 0 0, v0x56360c877260_0;  alias, 1 drivers
+v0x56360c879140_0 .net "s1", 0 0, v0x56360c8779e0_0;  alias, 1 drivers
+v0x56360c8791e0_0 .net "s2", 0 0, v0x56360c878160_0;  alias, 1 drivers
+v0x56360c8792b0_0 .net "s3", 0 0, v0x56360c8788d0_0;  alias, 1 drivers
+v0x56360c879380_0 .net "x0", 0 0, v0x56360c87a020_0;  1 drivers
+v0x56360c879450_0 .net "x1", 0 0, v0x56360c87a110_0;  1 drivers
+v0x56360c879520_0 .net "x2", 0 0, v0x56360c87a200_0;  1 drivers
+v0x56360c8795f0_0 .net "x3", 0 0, v0x56360c87a2a0_0;  1 drivers
+v0x56360c8796c0_0 .net "y0", 0 0, v0x56360c87a390_0;  1 drivers
+v0x56360c879790_0 .net "y1", 0 0, v0x56360c87a480_0;  1 drivers
+v0x56360c879860_0 .net "y2", 0 0, v0x56360c87a570_0;  1 drivers
+v0x56360c879930_0 .net "y3", 0 0, v0x56360c87a660_0;  1 drivers
+S_0x56360c81ae50 .scope module, "stage0" "FullAdder" 3 6, 4 2 0, S_0x56360c858b30;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "s";
+    .port_info 4 /OUTPUT 1 "cout";
+v0x56360c81b050_0 .net "cin", 0 0, v0x56360c87a390_0;  alias, 1 drivers
+v0x56360c8771a0_0 .var "cout", 0 0;
+v0x56360c877260_0 .var "s", 0 0;
+v0x56360c877330_0 .net "x", 0 0, v0x56360c879a80_0;  alias, 1 drivers
+v0x56360c8773f0_0 .net "y", 0 0, v0x56360c87a020_0;  alias, 1 drivers
+E_0x56360c856a10 .event edge, v0x56360c81b050_0, v0x56360c8773f0_0, v0x56360c877330_0;
+S_0x56360c8775a0 .scope module, "stage1" "FullAdder" 3 7, 4 2 0, S_0x56360c858b30;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "s";
+    .port_info 4 /OUTPUT 1 "cout";
+v0x56360c877840_0 .net "cin", 0 0, v0x56360c87a480_0;  alias, 1 drivers
+v0x56360c877920_0 .var "cout", 0 0;
+v0x56360c8779e0_0 .var "s", 0 0;
+v0x56360c877ab0_0 .net "x", 0 0, v0x56360c8771a0_0;  alias, 1 drivers
+v0x56360c877b80_0 .net "y", 0 0, v0x56360c87a110_0;  alias, 1 drivers
+E_0x56360c8568b0 .event edge, v0x56360c877840_0, v0x56360c877b80_0, v0x56360c8771a0_0;
+S_0x56360c877d10 .scope module, "stage2" "FullAdder" 3 8, 4 2 0, S_0x56360c858b30;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "s";
+    .port_info 4 /OUTPUT 1 "cout";
+v0x56360c877fc0_0 .net "cin", 0 0, v0x56360c87a570_0;  alias, 1 drivers
+v0x56360c8780a0_0 .var "cout", 0 0;
+v0x56360c878160_0 .var "s", 0 0;
+v0x56360c878230_0 .net "x", 0 0, v0x56360c877920_0;  alias, 1 drivers
+v0x56360c878300_0 .net "y", 0 0, v0x56360c87a200_0;  alias, 1 drivers
+E_0x56360c856750 .event edge, v0x56360c877fc0_0, v0x56360c878300_0, v0x56360c877920_0;
+S_0x56360c878490 .scope module, "stage3" "FullAdder" 3 9, 4 2 0, S_0x56360c858b30;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "x";
+    .port_info 1 /INPUT 1 "y";
+    .port_info 2 /INPUT 1 "cin";
+    .port_info 3 /OUTPUT 1 "s";
+    .port_info 4 /OUTPUT 1 "cout";
+v0x56360c878730_0 .net "cin", 0 0, v0x56360c87a660_0;  alias, 1 drivers
+v0x56360c878810_0 .var "cout", 0 0;
+v0x56360c8788d0_0 .var "s", 0 0;
+v0x56360c8789a0_0 .net "x", 0 0, v0x56360c8780a0_0;  alias, 1 drivers
+v0x56360c878a70_0 .net "y", 0 0, v0x56360c87a2a0_0;  alias, 1 drivers
+E_0x56360c8565f0 .event edge, v0x56360c878730_0, v0x56360c878a70_0, v0x56360c8780a0_0;
+    .scope S_0x56360c81ae50;
+T_0 ;
+    %wait E_0x56360c856a10;
+    %load/vec4 v0x56360c877330_0;
+    %pad/u 2;
+    %load/vec4 v0x56360c8773f0_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0x56360c81b050_0;
+    %pad/u 2;
+    %add;
+    %split/vec4 1;
+    %store/vec4 v0x56360c877260_0, 0, 1;
+    %store/vec4 v0x56360c8771a0_0, 0, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0x56360c8775a0;
+T_1 ;
+    %wait E_0x56360c8568b0;
+    %load/vec4 v0x56360c877ab0_0;
+    %pad/u 2;
+    %load/vec4 v0x56360c877b80_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0x56360c877840_0;
+    %pad/u 2;
+    %add;
+    %split/vec4 1;
+    %store/vec4 v0x56360c8779e0_0, 0, 1;
+    %store/vec4 v0x56360c877920_0, 0, 1;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_0x56360c877d10;
+T_2 ;
+    %wait E_0x56360c856750;
+    %load/vec4 v0x56360c878230_0;
+    %pad/u 2;
+    %load/vec4 v0x56360c878300_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0x56360c877fc0_0;
+    %pad/u 2;
+    %add;
+    %split/vec4 1;
+    %store/vec4 v0x56360c878160_0, 0, 1;
+    %store/vec4 v0x56360c8780a0_0, 0, 1;
+    %jmp T_2;
+    .thread T_2, $push;
+    .scope S_0x56360c878490;
+T_3 ;
+    %wait E_0x56360c8565f0;
+    %load/vec4 v0x56360c8789a0_0;
+    %pad/u 2;
+    %load/vec4 v0x56360c878a70_0;
+    %pad/u 2;
+    %add;
+    %load/vec4 v0x56360c878730_0;
+    %pad/u 2;
+    %add;
+    %split/vec4 1;
+    %store/vec4 v0x56360c8788d0_0, 0, 1;
+    %store/vec4 v0x56360c878810_0, 0, 1;
+    %jmp T_3;
+    .thread T_3, $push;
+    .scope S_0x56360c8589a0;
+T_4 ;
+    %vpi_call 2 10 "$dumpfile", "FourAdder_tb.vcd" {0 0 0};
+    %vpi_call 2 11 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x56360c8589a0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c879a80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a110_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a2a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a390_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a480_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a570_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a660_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c879a80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a020_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a110_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a2a0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a390_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a480_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a570_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a660_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c879a80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a110_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a2a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a390_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a480_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a570_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a660_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c879a80_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a020_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a110_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a200_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a2a0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a390_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a480_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x56360c87a570_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x56360c87a660_0, 0, 1;
+    %delay 20, 0;
+    %vpi_call 2 28 "$display", "Done" {0 0 0};
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "FourAdder_tb.v";
+    "./FourAdder.v";
+    "./FullAdder.v";
